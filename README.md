@@ -74,6 +74,7 @@ If you have further questions, do not hesitate to contact Jessa Bekker (https:
 # Cite
 Please cite the original paper that this wrapper was developed for when you use it:
 
+```
 @inproceedings{bekker2015tractable,
   title={Tractable learning for complex probability queries},
   author={Bekker, Jessa and Davis, Jesse and Choi, Arthur and Darwiche, Adnan and Van den Broeck, Guy},
@@ -81,3 +82,4 @@ Please cite the original paper that this wrapper was developed for when you use 
   pages={2242--2250},
   year={2015}
 } 
+```
