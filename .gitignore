@@ -5,3 +5,5 @@ lib/libsdd.so
 include/*
 
 .idea
+*.iml
+out
