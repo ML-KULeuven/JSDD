@@ -68,8 +68,7 @@ Some examples can be found in the ./examples/ directory. These examples are the 
 
 
 # Contact
-If you have further questions, do not hesitate to contact Jessa Bekker (https:
-//people.cs.kuleuven.be/~jessa.bekker/)
+If you have further questions, do not hesitate to contact Jessa Bekker (https://people.cs.kuleuven.be/~jessa.bekker/)
 
 # Cite
 Please cite the original paper that this wrapper was developed for when you use it:
