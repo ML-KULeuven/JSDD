@@ -21,10 +21,10 @@ JNI_MD_DIR = $(JNI_DIR)/linux # This is the directory containing jni_md.h
 #############################################
 
 
-default: lib/JSDD-2.jar
+default: lib/JSDD.jar
 
 test:	bin/test/java/*class
-	java -cp $(JUNIT_PATH):$(HAMCREST_PATH):lib/JSDD-2.jar:bin/test/java/ org.junit.runner.JUnitCore AllTests
+	java -cp $(JUNIT_PATH):$(HAMCREST_PATH):lib/JSDD.jar:bin/test/java/ org.junit.runner.JUnitCore AllTests
 	
 example1: examples/*.class
 	java -cp .:lib/* examples.Test1
@@ -58,19 +58,19 @@ bin:
 	mkdir -p bin/main/c
 	mkdir -p bin/test/java
 
-lib/libsdd-2_wrap.so: bin
+lib/libsdd_wrap.so: bin
 	gcc -c -fpic -o bin/main/c/sdd-2_wrap.o -std=c99 src/main/c/sdd-2_wrap.c -Iinclude -I$(JNI_DIR) -I$(JNI_MD_DIR) 
-	ld -shared  -o lib/libsdd-2_wrap.so bin/main/c/sdd-2_wrap.o -L$(SDD_DIR) -lsdd -lm -XLinker 
+	ld -shared  -o lib/libsdd_wrap.so bin/main/c/sdd-2_wrap.o -L$(SDD_DIR) -lsdd -lm -XLinker 
 
-lib/JSDD-2.jar: lib/libsdd-2_wrap.so
+lib/JSDD.jar: lib/libsdd_wrap.so
 	javac src/main/java/sdd/*.java src/main/java/jni/*.java src/main/java/helpers/*.java -d bin/main/java/
-	jar cf lib/JSDD-2.jar -C bin/main/java sdd -C bin/main/java jni -C bin/main/java helpers
+	jar cf lib/JSDD.jar -C bin/main/java sdd -C bin/main/java jni -C bin/main/java helpers
 
-bin/test/java/*class: lib/JSDD-2.jar
-	javac -cp $(JUNIT_PATH):$(HAMCREST_PATH):lib/JSDD-2.jar src/test/java/*.java -d bin/test/java/
+bin/test/java/*class: lib/JSDD.jar
+	javac -cp $(JUNIT_PATH):$(HAMCREST_PATH):lib/JSDD.jar src/test/java/*.java -d bin/test/java/
 	
 
-examples/*.class: lib/JSDD-2.jar
-	javac -cp .:lib/JSDD-2.jar examples/*.java
+examples/*.class: lib/JSDD.jar
+	javac -cp .:lib/JSDD.jar examples/*.java
 
 
