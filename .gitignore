@@ -3,3 +3,5 @@ examples/*class
 output
 lib/libsdd.so
 include/*
+
+.idea
