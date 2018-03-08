@@ -163,6 +163,7 @@ public class SddLibJNI {
 
   static{
 	  System.loadLibrary("sdd");
+	  System.loadLibrary("sdd_wrap");
   }
 
 }
