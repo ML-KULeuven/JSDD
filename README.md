@@ -6,18 +6,19 @@ This wrapper provides access to the sdd library through Java or Scala.
 # Dependencies and System Requirements
 sdd 2.0 library: Download from http://reasoning.cs.ucla.edu/sdd/
 
-The sdd library works on linux and OS X. The java wrapper is only tested on linux, but should also work on OS X.
+The sdd library and its java wrapper work on linux and OS X.
 
 
 # Quickstart
-1. From the sdd package, copy the sdd library (libsdd.so) to lib/
-2. Make sure that the c libraries can be found by adding lib/ to the ld library path
+1. Make sure that the variables OS and JNI_DIR are set correctly in the makefile.
+2. From the sdd package, copy the sdd library (libsdd.so for linux or libsdd.dylib for osx) to lib/
+3. Make sure that the c libraries can be found by adding lib/ to the ld library path
     ```
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:lib/
     ```
 
 ## Run examples    
-3. Run an example of your choice (1-7) by executing:
+4. Run an example of your choice (1-7) by executing:
     ```
     make example1
     ...
@@ -25,19 +26,19 @@ The sdd library works on linux and OS X. The java wrapper is only tested on linu
     ```
 
 ## Compile from source
-3. From the sdd package, copy the header of the sdd library (sddapi.h) to include/
+5. From the sdd package, copy the header of the sdd library (sddapi.h) to include/
 
-4. Clean first so that the the binaries and jars will be recompiled
+6. Clean first so that the the binaries and jars will be recompiled
     ```
     make clean
     ```
-5. Compile
+7. Compile
     ```
     make
     ```
 
 ## Run unit tests
-3. Run the tests
+8. Run the tests
     ```
     make test
     ```
