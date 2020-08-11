@@ -1,9 +1,10 @@
 bin
 examples/*class
 output
-lib/libsdd.so
+lib/libsdd.*
 include/*
 
 .idea
 *.iml
 out
+**.class
