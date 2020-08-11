@@ -11,7 +11,10 @@
 # $ find / -name <filename>
 # where <filename> is the name of the file which can include wildcards, e.g junit*.jar can be used to look for different versions of junit.
 
-OS=darwin #linux for linux systems, darwin for osx
+
+LINUX=linux
+OSX=darwin
+OS=$(LINUX)
 
 SDD_DIR = lib/ # This is the directory containing libsdd.so (or libsdd.dylib for osx)
 
@@ -20,12 +23,15 @@ HAMCREST_PATH = /usr/share/java/hamcrest-core.jar
 JNI_DIR = $(JAVA_HOME)/include# This is the directory containing jni.h
 JNI_MD_DIR = $(JNI_DIR)/$(OS) # This is the directory containing jni_md.h
 
-ifeq ($OS,"linux")
+ifeq ($(OS),$(LINUX))
 LIB = lib/libsdd_wrap.so
 else
+ifeq ($(OS),$(OSX))
 LIB = lib/libsdd_wrap.dylib
+else
+LIB = fail
 endif
-
+endif
 
 JAVA = java -Djava.library.path="lib" -cp .:lib/*
 #############################################
