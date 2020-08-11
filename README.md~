@@ -44,9 +44,9 @@ The sdd library and its java wrapper work on linux and OS X.
     ```
 
 # Use JSDD in your own code
-1. Make sure that the c libraries (libsdd.so/.dylib, libsdd-2_wrap.so/.dylib) can be found by adding lib/ to the ld library path and the java.library.path
-2. Add the JSDD.jar to the java classpath 
-4. Start coding!
+1. Make sure that the c libraries (libsdd.so, libsdd-2_wrap.so) can be found by adding lib/ to the ld library path
+2. Add the JSDD.jar to the java classpath
+3. Start coding!
 
 # API
 You can find the documentation of JSDD in the directory ./doc/index.html.
@@ -67,13 +67,6 @@ For debugging purpose, when a Java object of the class Sdd is finalized, it chec
 # Examples
 Some examples can be found in the ./examples/ directory. These examples are the same as the ones packaged with the C library. There is one extra example about using the WmcManager. The examples use the ./input/ and ./output/ folders for their input and output.
 
-
-# Common issue: Segfaults when operating large SDDs
-When operating on large SDDs (eg size >500), you may run into segfaults. This very criptic error can be due to no enough memory being available for the underlying c library. This can be solved by increasing the JVM's stack size limit, e.g. to 256MB, using the -Xss option:
-
-```
-java -Xss256m <your program>
-```
 
 # Contact
 If you have further questions, do not hesitate to contact Jessa Bekker (https://people.cs.kuleuven.be/~jessa.bekker/)
